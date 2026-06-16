@@ -6,8 +6,67 @@ import {
   Send,
 } from "lucide-react";
 import spaheroimg from "../assets/spahero-img.jpg";
+import { useReducer } from "react";
+
+const initialState = {
+  fullname:"",
+  email:"",
+  phone:"",
+  message:"",
+}
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "SET_FIELD":
+      return {
+        ...state,
+        [ action.name ]: action.value
+      }
+      
+    case "RESET":
+      return initialState
+  
+    default:
+      return state;
+  }
+}
+
 
 const Contact = () => {
+  const [ state, dispatch ] = useReducer(reducer, initialState);
+
+  function handleChange(e){
+    dispatch({
+      type: "SET_FIELD",
+      name: e.target.name,
+      value: e.target.value
+    })
+  }
+
+  function handleSubmit(e){
+    e.preventDefault();
+
+    const message = `
+      TGMC SPA - New Customer Inquiry
+
+      Name: ${state.fullname}
+      Email: ${state.email}
+      Phone: ${state.phone}
+
+      Message: ${state.message}
+      `;
+
+      const spaPhoneNumber = "919009566222";
+
+      const whatsappUrl = `https://wa.me/${spaPhoneNumber}?text=${encodeURIComponent(
+        message
+      )}`;
+
+      window.open(whatsappUrl, "_blank")
+
+      dispatch({ type: "RESET" })
+  }
+
   return (
     <div className="bg-[#0B0B0B] text-white min-h-screen">
       {/* Hero Section */}
@@ -91,26 +150,41 @@ const Contact = () => {
               Send Us A Message
             </h2>
 
-            <form className="space-y-5">
+            <form onSubmit={handleSubmit} className="space-y-5">
               <input
                 type="text"
-                placeholder="Full Name"
+                name="fullname"
+                value={state.fullname}
+                onChange={handleChange}
+                required
+                placeholder="Full Name *"
                 className="w-full bg-[#1A1A1A] border border-white/10 rounded-xl px-4 py-4 outline-none focus:border-[#C8A96B]"
               />
 
               <input
                 type="email"
+                name="email"
+                value={state.email}
+                onChange={handleChange}
                 placeholder="Email Address"
+                required
                 className="w-full bg-[#1A1A1A] border border-white/10 rounded-xl px-4 py-4 outline-none focus:border-[#C8A96B]"
               />
 
               <input
                 type="tel"
-                placeholder="Phone Number"
+                name="phone"
+                value={state.phone}
+                onChange={handleChange}
+                placeholder="Phone Number *"
+                required
                 className="w-full bg-[#1A1A1A] border border-white/10 rounded-xl px-4 py-4 outline-none focus:border-[#C8A96B]"
               />
 
               <textarea
+                name="message"
+                value={state.message}
+                onChange={handleChange}
                 rows="5"
                 placeholder="Your Message"
                 className="w-full bg-[#1A1A1A] border border-white/10 rounded-xl px-4 py-4 outline-none focus:border-[#C8A96B]"

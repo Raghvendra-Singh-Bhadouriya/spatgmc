@@ -120,8 +120,7 @@ backgroundImage:
               type="text"
               name="fullname"
               value={state.fullname}
-              onChange={handleChange
-              }
+              onChange={handleChange}
               placeholder="Full Name *"
               required
               className="w-full bg-[#1A1A1A] border border-white/10 rounded-xl py-4 pl-12 pr-4 outline-none focus:border-[#C8A96B]"
