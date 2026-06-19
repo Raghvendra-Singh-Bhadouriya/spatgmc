@@ -6,11 +6,11 @@ import { Routes, Route } from "react-router-dom";
 import Home from "../pages/Home";
 import About from "../pages/About";
 import Services from "../pages/Services";
-// import Packages from "../pages/Packages";
+import Packages from "../pages/Packages";
 import Gallery from "../pages/Gallery";
 import Contact from "../pages/Contact";
 import Appointment from "../pages/Appointment";
-// import NotFound from "../pages/NotFound";
+import NotFound from "../pages/NotFound";
 
 const AllRoutes = () => {
   return (
@@ -21,7 +21,7 @@ const AllRoutes = () => {
 
       <Route path="/services" element={<Services />} />
 
-      {/* <Route path="/packages" element={<Packages />} /> */}
+      <Route path="/packages" element={<Packages />} />
 
       <Route path="/gallery" element={<Gallery />} />
 
@@ -32,7 +32,7 @@ const AllRoutes = () => {
         element={<Appointment />}
       />
 
-      {/* <Route path="*" element={<NotFound />} /> */}
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 };

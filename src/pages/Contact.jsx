@@ -121,7 +121,7 @@ const Contact = () => {
               Location
             </h3>
             <p className="text-gray-400">
-              Indore, Madhya Pradesh
+              Rajendra Nagar, Indore Madhya Pradesh 452012
             </p>
           </div>
 
@@ -223,7 +223,10 @@ const Contact = () => {
                   Address
                 </h3>
                 <p className="text-gray-400">
-                  Indore, Madhya Pradesh
+                  The Grand Courtyard Maan,
+                  4-5 AB Road, Opposite Tower Gulkand,
+                  Near IPS College, Rajendra Nagar,
+                  Indore, Madhya Pradesh 452012, India
                 </p>
               </div>
 
@@ -265,12 +268,14 @@ const Contact = () => {
         <div className="max-w-7xl mx-auto overflow-hidden rounded-3xl border border-white/10">
           <iframe
             title="TGMC SPA Location"
-            src="https://www.google.com/maps?q=Indore&output=embed"
+            src="https://www.google.com/maps?q=The+Grand+Courtyard+Maan,+4-5+AB+Road,+Opposite+Tower+Gulkand,+Near+IPS+College,+Rajendra+Nagar,+Indore,+Madhya+Pradesh+452012&output=embed"
             width="100%"
             height="500"
             style={{ border: 0 }}
             allowFullScreen=""
             loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            className="w-full"
           />
         </div>
       </section>
